@@ -1,0 +1,720 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "2a32bad8-b95f-41b3-bfc9-f4ac51b3e32f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np \n",
+    "import pandas as pd "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c0108619-398c-4c61-aae1-f77ab762ef75",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "working\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"working\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "c0d520f3-bc56-4b4b-a94a-69ae0f1322d9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "dict1 = {\n",
+    "       \"name\" : ['pushpak','sandeep','akshat','ayushi'],\n",
+    "       \"makrs\" : [92,98,97,100],\n",
+    "       \"city\" :['indore','ujjain','dewas','bhopal']\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "41096f9a-31b1-4fc1-aa51-af4e3bee7d80",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.DataFrame(dict1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "ab5d2d04-41de-40d5-b1f6-380f1e9b1c60",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>makrs</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>pushpak</td>\n",
+       "      <td>92</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>sandeep</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>akshat</td>\n",
+       "      <td>97</td>\n",
+       "      <td>dewas</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>ayushi</td>\n",
+       "      <td>100</td>\n",
+       "      <td>bhopal</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "      name  makrs    city\n",
+       "0  pushpak     92  indore\n",
+       "1  sandeep     98  ujjain\n",
+       "2   akshat     97   dewas\n",
+       "3   ayushi    100  bhopal"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "fdf3021d-c8ab-4f07-a26e-38b29127f86a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>makrs</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>pushpak</td>\n",
+       "      <td>92</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>sandeep</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "      name  makrs    city\n",
+       "0  pushpak     92  indore\n",
+       "1  sandeep     98  ujjain"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head(2) #shows top rows&coulumns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "88d54608-909b-4fba-bec2-01854bb3cf3a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.to_csv('pandas.csv') #convert file into csv format(excel)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "85f6f983-1e03-4f77-b733-e2542d535667",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.to_csv('pandas_indexFalse.csv',index=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "dc3d9c45-2f75-46e7-9dc7-067ef6e624e6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>makrs</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>pushpak</td>\n",
+       "      <td>92</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>sandeep</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "      name  makrs    city\n",
+       "0  pushpak     92  indore\n",
+       "1  sandeep     98  ujjain"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head(2) #shows bottom 2 rowns and comlumns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "8296d0c9-a583-4003-afcf-271f81cde839",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>makrs</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>4.00000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>96.75000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>3.40343</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>92.00000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>95.75000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>97.50000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>98.50000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>100.00000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "           makrs\n",
+       "count    4.00000\n",
+       "mean    96.75000\n",
+       "std      3.40343\n",
+       "min     92.00000\n",
+       "25%     95.75000\n",
+       "50%     97.50000\n",
+       "75%     98.50000\n",
+       "max    100.00000"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.describe() #give numerical statistical things like mean mode median etc."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "d5c49c75-bdfd-4134-b921-e3b4bca38700",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pushpak = pd.read_csv('pushpak.csv') #to read the csv file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "db3cb4d5-686b-481d-8154-309ab205194e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>train no</th>\n",
+       "      <th>speed</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>9090</td>\n",
+       "      <td>92</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>8989</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>7777</td>\n",
+       "      <td>97</td>\n",
+       "      <td>dewas</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>5555</td>\n",
+       "      <td>100</td>\n",
+       "      <td>bhopal</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   train no  speed    city\n",
+       "0      9090     92  indore\n",
+       "1      8989     98  ujjain\n",
+       "2      7777     97   dewas\n",
+       "3      5555    100  bhopal"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pushpak  #write the name of dataframe to print it "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "52a4d59a-63fa-40a2-965d-b16e8d7d29b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0     92\n",
+       "1     98\n",
+       "2     97\n",
+       "3    100\n",
+       "Name: speed, dtype: int64"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pushpak['speed'] #this print only speed coloumn"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "id": "c05e7eb4-2ec4-4433-9117-2d476d4aba25",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "92"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "int(pushpak['speed'][0]) #this specific coloumn element of specific index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "2f07e77b-b3bb-49fc-87a2-dadec95cb23a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pushpak.loc[0,'speed'] = 50 #this changes the value of particular element in dataframe directly"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "3aa6e642-d7bc-4b01-bbcd-2747a753719b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>train no</th>\n",
+       "      <th>speed</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>9090</td>\n",
+       "      <td>50</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>8989</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>7777</td>\n",
+       "      <td>97</td>\n",
+       "      <td>dewas</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>5555</td>\n",
+       "      <td>100</td>\n",
+       "      <td>bhopal</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   train no  speed    city\n",
+       "0      9090     50  indore\n",
+       "1      8989     98  ujjain\n",
+       "2      7777     97   dewas\n",
+       "3      5555    100  bhopal"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pushpak"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "c4687559-ae63-4e50-910c-28644e6047b4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pushpak.to_csv('pushpak.csv') #pushpak dataframe convert into csv file //to_csv is a function of pandas to save the dataframe into file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "853a74fa-ebbf-4b27-b1bb-83c6451e8b43",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pushpak.index = ['first','second','third','forth']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "2af33846-a50a-475f-a9d5-97ffb9680a29",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>train no</th>\n",
+       "      <th>speed</th>\n",
+       "      <th>city</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>first</th>\n",
+       "      <td>9090</td>\n",
+       "      <td>50</td>\n",
+       "      <td>indore</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>second</th>\n",
+       "      <td>8989</td>\n",
+       "      <td>98</td>\n",
+       "      <td>ujjain</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>third</th>\n",
+       "      <td>7777</td>\n",
+       "      <td>97</td>\n",
+       "      <td>dewas</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>forth</th>\n",
+       "      <td>5555</td>\n",
+       "      <td>100</td>\n",
+       "      <td>bhopal</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "        train no  speed    city\n",
+       "first       9090     50  indore\n",
+       "second      8989     98  ujjain\n",
+       "third       7777     97   dewas\n",
+       "forth       5555    100  bhopal"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pushpak"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "860021f4-06c6-451d-b680-de8b2dcf7bb6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
